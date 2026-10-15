@@ -1,0 +1,11 @@
+name: fluidmechanics
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - matplotlib
+  - rasterio
+  - ipywidgets>=8
+  - jupyterlab
