@@ -3,6 +3,7 @@ Colebrook-White curve with an interactive ipywidgets control panel.
 
 Chart coordinates: x = log10(Re), y = Darcy friction factor f.
 """
+import warnings
 from pathlib import Path
 
 import numpy as np
@@ -10,6 +11,7 @@ import matplotlib.pyplot as plt
 import rasterio
 import rasterio.control
 import rasterio.transform
+from rasterio.errors import NotGeoreferencedWarning
 from rasterio.plot import show
 import ipywidgets as widgets
 
@@ -36,8 +38,12 @@ def georeference(image_path, output_path, gcps=DEFAULT_GCPS):
     output_path.parent.mkdir(parents=True, exist_ok=True)
     transform = rasterio.transform.from_gcps(gcps)
 
-    with rasterio.open(image_path) as src:
-        bands = src.read([1, 2, 3])
+    # The source image is a plain JPG/PNG with no geotransform yet; that is
+    # expected here, so silence rasterio's NotGeoreferencedWarning.
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", NotGeoreferencedWarning)
+        with rasterio.open(image_path) as src:
+            bands = src.read([1, 2, 3])
 
     with rasterio.open(
         output_path,
