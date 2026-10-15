@@ -1,14 +1,16 @@
 # Moody diagram — Colebrook–White overlay
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AaronOET/fluidmechanics/main?urlpath=lab/tree/moodydiagram/moody_diagram.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AaronOET/fluidmechanics/blob/main/moodydiagram/moody_diagram.ipynb)
 
 An interactive Jupyter notebook that draws the Colebrook–White friction-factor
 curve on top of a scanned Moody chart, so you can read the Darcy friction
 factor **f** for any Reynolds number **Re** and relative roughness **ε/D**.
 
-Click the **launch binder** badge above to run it in your browser with nothing
-to install. The first launch can take a few minutes while Binder builds the
-environment.
+Click the **launch binder** or **Open in Colab** badge above to run it in your
+browser with nothing to install. The first Binder launch can take a few minutes
+while it builds the environment; on Colab the notebook downloads its helper
+files on first run.
 
 ## What the notebook does
 
